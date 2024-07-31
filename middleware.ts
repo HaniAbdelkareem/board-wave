@@ -11,6 +11,8 @@ export const config = {
 }
 
 
+// "/((?!create-organization|create-organization/.*).*)",
+// "/(.*)", "/"
 
 // import { clerkMiddleware } from "@clerk/nextjs/server"
 
