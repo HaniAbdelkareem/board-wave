@@ -17,6 +17,7 @@ export async function POST(request: Request) {
   const authorization = await auth()
   const user = await currentUser()
 
+  // Block users trying to join board without permission
   if (!authorization || !user) {
     return new Response("Unauthorized", { status: 403 })
   }
