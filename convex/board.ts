@@ -1,11 +1,19 @@
-// Create an API route with convex to create a board
-// It is used to create, update, delete a board
-
 import { v } from "convex/values"
 
 import { mutation, query } from "./_generated/server"
 
-const images = ["/placeholders/1.svg", "/placeholders/2.svg"]
+const images = [
+  "/placeholders/1.svg",
+  "/placeholders/2.svg",
+  "/placeholders/3.svg",
+  "/placeholders/4.svg",
+  "/placeholders/5.svg",
+  "/placeholders/6.svg",
+  "/placeholders/7.svg",
+  "/placeholders/8.svg",
+  "/placeholders/9.svg",
+  "/placeholders/10.svg"
+]
 
 export const create = mutation({
   args: {
@@ -44,8 +52,8 @@ export const remove = mutation({
       throw new Error("Unauthorized")
     }
 
-    // TODO: Later check to delete favorite relation as well
     const userId = identity.subject
+
     const existingFavorite = await ctx.db
       .query("userFavorites")
       .withIndex("by_user_board", (q) =>
