@@ -38,5 +38,9 @@ export async function POST(request: Request) {
   }
 
   const { status, body } = await session.authorize()
+
+  // const headers = new Headers()
+  // headers.set('Set-Cookie', 'cookieName=cookieValue; SameSite=None; Secure')
+
   return new Response(body, { status })
 }
